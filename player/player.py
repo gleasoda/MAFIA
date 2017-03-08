@@ -9,7 +9,6 @@ class Player:
         """
         self.player_id = p_id
         self.player_name = p_name
-        return self
 
 
     def __str__(self):
