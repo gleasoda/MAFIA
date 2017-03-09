@@ -1,4 +1,4 @@
-import player
+from mafia_game import Player
 
 import sys
 
