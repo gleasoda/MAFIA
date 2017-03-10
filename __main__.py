@@ -1,5 +1,6 @@
 from mafia_game import Player
 
+import random
 import sys
 
 def main(argv = None):
