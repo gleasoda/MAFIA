@@ -7,7 +7,9 @@ def main(argv = None):
     """
     The 'main' function for executing MAFIA.
     """
-
+    # # # # # # # # # #
+    # Startup and opening messages.
+    # # # # # # # # # #
     if argv is None:
         argv = sys.argv[1:]
 
@@ -16,7 +18,11 @@ def main(argv = None):
 
     else:
         pass
-    
+
+
+    # # # # # # # # # #
+    # Player name entry.
+    # # # # # # # # # #
     print("\nEnter player names (leave blank to complete player entry);");
     print("if a name is entered improperly, it may be reenetered later -->");
     
@@ -60,6 +66,27 @@ def main(argv = None):
 
     for player in player_list:
         print(player)
+
+
+    # # # # # # # # # #
+    # Game details/options entry.
+    # # # # # # # # # #
+    num_players = len(player_list)
+    num_mafia = num_players//4
+    num_townies = num_players - num_mafia
+    
+    print("\nA game size of %d players warrants %d mafia (%d townies);"\
+    % (num_players, num_mafia, num_townies));
+    print("leave blank to continue; or, enter the number of mafia -->");
+    
+    while (True):
+        num_mafia = input("# mafia: ")
+        if num_mafia == "": # entry: empty string
+            break;
+        elif not num_mafia.isdigit():
+            print("INVALID INPUT - # mafia must be an integer!");
+            continue;
+        break;
         
     return 0
 
