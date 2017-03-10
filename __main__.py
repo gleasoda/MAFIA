@@ -1,4 +1,5 @@
 from mafia_game import Player
+from mafia_game import Role
 
 import random
 import sys

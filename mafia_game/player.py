@@ -9,9 +9,8 @@ class Player:
         """
         self.player_id = p_id
         self.player_name = p_name
-        self.role = None
-        self.subrole_list = None
+        self.player_role = None
+        self.player_subrole_list = None
 
     def __str__(self):
-        # return "[%s] %s {%s}" % (self.player_id, self.player_name, self.role)
         return "[%s] %s" % (self.player_id, self.player_name)
