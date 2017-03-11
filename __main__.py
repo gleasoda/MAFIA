@@ -1,7 +1,9 @@
 from mafia_game import Player
 from mafia_game import master_role_index
 
+
 import random
+from random import shuffle
 import sys
 
 def main(argv = None):
@@ -81,14 +83,33 @@ def main(argv = None):
     print("leave blank to continue; or, enter the number of mafia -->");
     
     while (True):
-        num_mafia = input("# mafia: ")
-        if num_mafia == "": # entry: empty string
+        entered_num_mafia = input("# mafia: ")
+        if entered_num_mafia == "": # entry: empty string
             break;
         elif not num_mafia.isdigit():
             print("INVALID INPUT - # mafia must be an integer!");
             continue;
+        num_mafia = entered_num_mafia
         break;
+    
+    num_townies = num_players - num_mafia
+
+
+    # # # # # # # # # #
+    # Role assignments.
+    # # # # # # # # # #
+    town_list = [0] * num_townies
+    mafia_list = [1] * num_mafia
+    role_assignment_list = town_list + mafia_list
+    shuffle(role_assignment_list)
+    
+    for i in range(num_players-1):
+        player_list[i].player_role = master_role_index.list[role_assignment_list[i]]
         
+    print("\nPlayer and role assignments:");
+    for player in player_list:
+        print(player)
+    
     return 0
 
 if __name__ == "__main__":

@@ -3,12 +3,11 @@ class Role:
     A class object which holds role information.
     """
 
-    def __init__(self, r_id, r_name, r_allegiance,\
-    r_verdict):
+    def __init__(self, r_name, r_allegiance, r_verdict):
         """
         Role initialization.
         """
-        self.role_id = r_id
+        self.role_id = 0
         self.role_name = r_name
         self.role_allegiance = r_allegiance
         self.role_verdict = r_verdict
