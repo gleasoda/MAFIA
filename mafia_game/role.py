@@ -13,5 +13,9 @@ class Role:
         self.role_verdict = r_verdict
 
     def __str__(self):
-        return "[%s] %s {%s, %s}" % (self.role_id, self.role_name,\
-        self.role_allegiance, self.role_verdict)
+        return "[{id}] {name} {{{allegiance}, {verdict}}}".format(
+            id=self.role_id,
+            name=self.role_name,
+            allegiance=self.role_allegiance,
+            verdict=self.role_verdict,
+            )
