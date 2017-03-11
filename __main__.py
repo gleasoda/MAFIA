@@ -75,7 +75,14 @@ def main(argv = None):
     # Game details/options entry.
     # # # # # # # # # #
     num_players = len(player_list)
+    if num_players < 4:
+        print("\nNot enough players to play; 4+ needed, 8+ recommended!")
+        return 0
+    elif num_players < 8:
+        print("\nNote 8+ players recommended!")
     num_mafia = num_players//4
+    if num_mafia == 0:
+        num_mafia = 1
     num_townies = num_players - num_mafia
     
     print("\nA game size of %d players warrants %d mafia (%d townies);"\
@@ -103,13 +110,13 @@ def main(argv = None):
     role_assignment_list = town_list + mafia_list
     shuffle(role_assignment_list)
     
-    for i in range(num_players-1):
+    for i in range(num_players):
         player_list[i].player_role = master_role_index.list[role_assignment_list[i]]
         
     print("\nPlayer and role assignments:");
     for player in player_list:
-        print(player)
-    
+        print("%s: %s (%s allegiance, checks as %s)" % (player.player_name, player.player_role.role_name, player.player_role.role_allegiance, player.player_role.role_verdict))
+
     return 0
 
 if __name__ == "__main__":
