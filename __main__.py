@@ -1,5 +1,5 @@
 from mafia_game import Player
-from mafia_game import Role
+from mafia_game import master_role_index
 
 import random
 import sys
