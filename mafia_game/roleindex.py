@@ -16,10 +16,10 @@ class RoleIndex:
         # self.role_allegiance, self.role_verdict)
 
 
-role0  = Role("townie"  , "town" , "innocent");
-role1  = Role("mafioso" , "mafia", "guilty"  );
+# role0  = Role("townie"  , "town" , "innocent");
+# role1  = Role("mafioso" , "mafia", "guilty"  );
 
 master_role_index = RoleIndex()
-master_role_index.list.extend((role0, role1))
+# master_role_index.list.extend((role0, role1))
 for i in range(len(master_role_index.list)):
     master_role_index.list[i].role_id = i

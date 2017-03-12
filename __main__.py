@@ -1,5 +1,9 @@
 from mafia_game import Player
 from mafia_game import master_role_index
+from mafia_game import TownieRole
+from mafia_game import SheriffRole
+from mafia_game import MafiosoRole
+from mafia_game import GodfatherRole
 
 
 import random
@@ -106,15 +110,16 @@ def main(argv = None):
     # # # # # # # # # #
     # Role assignments.
     # # # # # # # # # #
-    town_list = [0] * num_townies
-    mafia_list = [1] * num_mafia
-    role_assignment_list = town_list + mafia_list
-    shuffle(role_assignment_list)
+    role_list =\
+      [TownieRole()] * (num_townies-1)\
+    + [SheriffRole()] * 1\
+    + [MafiosoRole()] * num_mafia
+    shuffle(role_list)
     
-    for i in range(num_players):
-        player_list[i].player_role =\
-        master_role_index.list[role_assignment_list[i]]
-        
+    for player, role in zip(player_list, role_list):
+        player.player_role = role
+        print(role)
+
     print("\nPlayer and role assignments:");
     for player in player_list:
         print("%s: %s (%s allegiance, checks as %s)" % (player.player_name,\
