@@ -21,7 +21,7 @@ class Role:
             )
             
     def is_innocent(self):
-        if role_verdict == "Innocent"
+        if role_verdict == "Innocent":
             return True
-        else
+        else:
             return False
