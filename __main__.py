@@ -43,7 +43,8 @@ def main(argv = None):
     for player in player_list:
         print(player)
     
-    print("\nIf a name is incorrect, enter the player's ID; or, leave blank -->");
+    print("\nIf a name is incorrect, enter the player's ID; or, leave blank \
+    -->");
     
     while (True):
         entered_id = input("\n[ID#] of player to rename: ")
@@ -111,11 +112,14 @@ def main(argv = None):
     shuffle(role_assignment_list)
     
     for i in range(num_players):
-        player_list[i].player_role = master_role_index.list[role_assignment_list[i]]
+        player_list[i].player_role =\
+        master_role_index.list[role_assignment_list[i]]
         
     print("\nPlayer and role assignments:");
     for player in player_list:
-        print("%s: %s (%s allegiance, checks as %s)" % (player.player_name, player.player_role.role_name, player.player_role.role_allegiance, player.player_role.role_verdict))
+        print("%s: %s (%s allegiance, checks as %s)" % (player.player_name,\
+        player.player_role.role_name, player.player_role.role_allegiance,\
+        player.player_role.role_verdict))
 
     return 0
 

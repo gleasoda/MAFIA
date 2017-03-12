@@ -19,3 +19,9 @@ class Role:
             allegiance=self.role_allegiance,
             verdict=self.role_verdict,
             )
+            
+    def is_innocent(self):
+        if role_verdict == "Innocent"
+            return True
+        else
+            return False
