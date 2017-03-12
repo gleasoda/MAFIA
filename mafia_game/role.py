@@ -25,3 +25,26 @@ class Role:
             return True
         else:
             return False
+
+
+
+
+class TownieRole(Role):
+    role_name = "Townie"
+    role_allegiance = "Town"
+    role_verdict = "Innocent"
+
+class SheriffRole(Role):
+    role_name = "Sheriff"
+    role_allegiance = "Town"
+    role_verdict = "Innocent"
+
+class MafiosoRole(Role):
+    role_name = "Mafioso"
+    role_allegiance = "Mafia"
+    role_verdict = "Guilty"
+
+class GodfatherRole(Role):
+    role_name = "Godfather"
+    role_allegiance = "Mafia"
+    role_verdict = "Innocent"
