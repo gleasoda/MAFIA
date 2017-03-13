@@ -19,27 +19,35 @@ class Role:
 
 
 
+role_index = []
 
 class TownieRole(Role):
     role_id = 0
     role_name = "Townie"
     role_allegiance = "Town"
     role_verdict = "Innocent"
-
+role_index.append(TownieRole())
+    
 class SheriffRole(Role):
-    role_id = 1
+    role_id = 0
     role_name = "Sheriff"
     role_allegiance = "Town"
     role_verdict = "Innocent"
+role_index.append(SheriffRole())
 
 class MafiosoRole(Role):
-    role_id = 2
+    role_id = 0
     role_name = "Mafioso"
     role_allegiance = "Mafia"
     role_verdict = "Guilty"
+role_index.append(MafiosoRole())
 
 class GodfatherRole(Role):
-    role_id = 3
+    role_id = 0
     role_name = "Godfather"
     role_allegiance = "Mafia"
     role_verdict = "Innocent"
+role_index.append(GodfatherRole())
+ 
+for ii in range(len(role_index)):
+    role_index[ii].role_id = ii
