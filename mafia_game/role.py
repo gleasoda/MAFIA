@@ -3,15 +3,6 @@ class Role:
     A class object which holds role information.
     """
 
-    def __init__(self):
-        """
-        Role initialization.
-        """
-        # self.role_id = 0
-        # self.role_name = "Unspecified"
-        # self.role_allegiance = "Unspecified"
-        # self.role_verdict = "Unspecified"
-
     def __str__(self):
         return "[{id}] {name} {{{allegiance}, {verdict}}}".format(
             id=self.role_id,
