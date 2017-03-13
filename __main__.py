@@ -4,6 +4,7 @@ from mafia_game import TownieRole
 from mafia_game import SheriffRole
 from mafia_game import MafiosoRole
 from mafia_game import GodfatherRole
+from mafia_game import role_index
 
 
 import random
@@ -30,6 +31,7 @@ def main(argv = None):
     # # # # # # # # # #
     # Player name entry.
     # # # # # # # # # #
+    print("\n\n\n\n\n")
     print("\nEnter player names (leave blank to complete player entry);");
     print("if a name is entered improperly, it may be reenetered later -->");
     
@@ -47,8 +49,8 @@ def main(argv = None):
     for player in player_list:
         print(player)
     
-    print("\nIf a name is incorrect, enter the player's ID; or, leave blank \
-    -->");
+    print("\nIf a name is incorrect, enter the player's ID; or, leave blank",
+        "-->");
     
     while (True):
         entered_id = input("\n[ID#] of player to rename: ")
@@ -79,6 +81,7 @@ def main(argv = None):
     # # # # # # # # # #
     # Game details/options entry.
     # # # # # # # # # #
+    print("\n\n\n\n\n")
     num_players = len(player_list)
     if num_players < 4:
         print("\nNot enough players to play; 4+ needed, 8+ recommended!")
@@ -110,17 +113,57 @@ def main(argv = None):
     # # # # # # # # # #
     # Role assignments.
     # # # # # # # # # #
+    print("\n\n\n\n\n")
+    print("\nAvailable power roles to add:")
+    role_index_min = 2
+    for role in role_index[role_index_min:]:
+        print(role)
+    print("\nYou may add up to %d Town power roles and %d Mafia power roles;"\
+    % (num_townies, num_mafia));
+    print("Leave blank to continue; or, enter the role ID of the power",
+        "role you wish to add -->");
+    
+    power_roles_to_add = []
+    num_town_power_roles = 0
+    num_mafia_power_roles = 0
+    while (len(power_roles_to_add) <= num_townies + num_mafia - 1):
+        entered_id = input("\n[ID#] of power role to add: ")
+        if entered_id == "": # entry: empty string
+            break;
+        elif not entered_id.isdigit():
+            print("INVALID INPUT - role ID not found!");
+            continue;
+        entered_id = int(entered_id);
+        if (entered_id < role_index_min or entered_id >= len(role_index)):
+            print("INVALID INPUT - role ID not found!");
+            continue;
+        if num_town_power_roles == num_townies and role_index[entered_id].role_allegiance == "Town":
+            print("INVALID INPUT - maximum number of Town power roles reached!");
+            continue;
+        elif num_mafia_power_roles == num_mafia and role_index[entered_id].role_allegiance == "Mafia":
+            print("INVALID INPUT - maximum number of Mafia power roles reached!");
+            continue;
+        if (role_index[entered_id].role_allegiance == "Town"):
+            num_town_power_roles = num_town_power_roles + 1
+        elif (role_index[entered_id].role_allegiance == "Mafia"):
+            num_mafia_power_roles = num_mafia_power_roles + 1
+        power_roles_to_add.append(role_index[entered_id])
+        
+    print("\n\nAdding the following power roles to the game:")
+    for role in power_roles_to_add:
+        print(role)
+    
     role_list =\
-      [TownieRole()] * (num_townies-1)\
-    + [SheriffRole()] * 1\
-    + [MafiosoRole()] * num_mafia
+      [TownieRole()] * (num_townies-num_town_power_roles)\
+    + [MafiosoRole()] * (num_mafia-num_mafia_power_roles)\
+    + power_roles_to_add
+    
     shuffle(role_list)
     
     for player, role in zip(player_list, role_list):
         player.player_role = role
-        print(role)
-
-    print("\nPlayer and role assignments:");
+    
+    print("\n\nPlayer and role assignments:");
     for player in player_list:
         print("%s: %s (%s allegiance, checks as %s)" % (player.player_name,\
         player.player_role.role_name, player.player_role.role_allegiance,\

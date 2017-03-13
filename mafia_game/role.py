@@ -28,6 +28,13 @@ class TownieRole(Role):
     role_verdict = "Innocent"
 role_index.append(TownieRole())
     
+class MafiosoRole(Role):
+    role_id = 0
+    role_name = "Mafioso"
+    role_allegiance = "Mafia"
+    role_verdict = "Guilty"
+role_index.append(MafiosoRole())
+
 class SheriffRole(Role):
     role_id = 0
     role_name = "Sheriff"
@@ -35,12 +42,12 @@ class SheriffRole(Role):
     role_verdict = "Innocent"
 role_index.append(SheriffRole())
 
-class MafiosoRole(Role):
+class NurseRole(Role):
     role_id = 0
-    role_name = "Mafioso"
-    role_allegiance = "Mafia"
-    role_verdict = "Guilty"
-role_index.append(MafiosoRole())
+    role_name = "Nurse"
+    role_allegiance = "Town"
+    role_verdict = "Innocent"
+role_index.append(NurseRole())
 
 class GodfatherRole(Role):
     role_id = 0
