@@ -112,8 +112,9 @@ def main(argv = None):
     # # # # # # # # # #
     # Role assignments.
     # # # # # # # # # #
-    role_list = setup_townie_power_roles(num_townies)
-    role_list = role_list + setup_mafia_power_roles(num_mafia)
+    roles_town = setup_townie_power_roles(num_townies)
+    roles_mafia = setup_mafia_power_roles(num_mafia)
+    role_list = roles_town + roles_mafia
     shuffle(role_list)
     
     for player, role in zip(player_list, role_list):
@@ -179,7 +180,7 @@ def setup_townie_power_roles(num_townies):
         # # is preferred since a user should be able to add multiple power roles
         # # of the same type even if this is unlikely or, in many cases,
         # # undesirable. An additional check should be made that the right number
-        # # of each type of role is added, and allow the user to reenter roles.
+        # # of each type of role is added and allow the user to reenter roles.
         # available_power_roles.pop(entered_id)
         
     print("\n\nAdding the following power roles to the game:")
