@@ -133,7 +133,6 @@ def setup_player_roles(num_townies, num_mafia):
     available_power_roles = [
         roles.SheriffRole(),
         roles.NurseRole(),
-        roles.MafiosoRole(),
         roles.GodfatherRole(),
     ]
     print("\n\n\n\n\n")
@@ -183,7 +182,14 @@ def setup_player_roles(num_townies, num_mafia):
             num_mafia_power_roles += 1
 
         power_roles_to_add.append(selected_role)
-        available_power_roles.pop(entered_id)
+        # # Popping a role causes the list to shrink and thereby invalidates the
+        # # id for a given role entry. Either the role is popped and the list is
+        # # reprinted with updated id's, or the list remains unchanged. The latter
+        # # is preferred since a user should be able to add multiple power roles
+        # # of the same type even if this is unlikely or, in many cases,
+        # # undesirable. An additional check should be made that the right number
+        # # of each type of role is added, and allow the user to reenter roles.
+        # available_power_roles.pop(entered_id)
         
     print("\n\nAdding the following power roles to the game:")
     for role in power_roles_to_add:
