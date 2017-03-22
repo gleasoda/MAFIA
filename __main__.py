@@ -1,10 +1,8 @@
 from mafia_game import Player
-from mafia_game import master_role_index
 from mafia_game import TownieRole
 from mafia_game import SheriffRole
 from mafia_game import MafiosoRole
 from mafia_game import GodfatherRole
-from mafia_game import role_index
 
 
 import random
