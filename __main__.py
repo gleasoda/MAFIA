@@ -3,7 +3,9 @@ from mafia_game import TownieRole
 from mafia_game import SheriffRole
 from mafia_game import MafiosoRole
 from mafia_game import GodfatherRole
-
+from mafia_game import town_power_roles
+from mafia_game import mafia_power_roles
+from mafia_game import all_power_roles
 
 import random
 from random import shuffle
@@ -24,7 +26,6 @@ def main(argv = None):
 
     else:
         pass
-
 
     # # # # # # # # # #
     # Player name entry.
@@ -131,10 +132,7 @@ def main(argv = None):
 def setup_townie_power_roles(num_townies):
     import mafia_game.role as roles
     # list of all avaiable power roles
-    available_power_roles = [
-        roles.NurseRole(),
-        roles.SheriffRole(),
-    ]
+    available_power_roles = town_power_roles()
     print("\n\n\n\n\n")
     print("\nAvailable townie power roles to add:")
     # print current index and role name
@@ -194,9 +192,7 @@ def setup_townie_power_roles(num_townies):
 def setup_mafia_power_roles(num_mafia):
     import mafia_game.role as roles
     # list of all avaiable power roles
-    available_power_roles = [
-        roles.GodfatherRole(),
-    ]
+    available_power_roles = mafia_power_roles()
     print("\n\n\n\n\n")
     print("\nAvailable Mafia power roles to add:")
     # print current index and role name

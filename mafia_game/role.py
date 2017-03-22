@@ -58,3 +58,28 @@ role_index.append(GodfatherRole())
  
 for ii in range(len(role_index)):
     role_index[ii].role_id = ii
+    
+    
+    
+    
+    
+def town_power_roles():
+    # list of all avaiable townie power roles
+    role_list = [
+        NurseRole(),
+        SheriffRole(),
+    ]
+    return role_list
+    
+def mafia_power_roles():
+    # list of all avaiable mafia power roles
+    role_list = [
+        GodfatherRole(),
+    ]
+    return role_list
+    
+def all_power_roles():
+    # list of all avaiable power roles
+    role_list = townie_power_roles()
+    role_list = role_list + mafia_power_roles()
+    return role_list
